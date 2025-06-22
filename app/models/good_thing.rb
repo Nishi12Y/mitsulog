@@ -1,0 +1,2 @@
+class GoodThing < ApplicationRecord
+end
