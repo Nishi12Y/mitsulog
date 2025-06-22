@@ -10,5 +10,11 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
+  root "static_pages#top"
+
+  # login_pathが生成される
+  get 'login' , to: 'user_sessions#new'
+  post 'login' , to: 'user_sessions#create'
+
   resources :users, only: [:new, :create]
 end
