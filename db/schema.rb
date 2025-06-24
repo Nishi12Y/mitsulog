@@ -10,21 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_22_014500) do
-  create_table "diaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.date "date", default: -> { "(curdate())" }, null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_diaries_on_user_id"
-  end
-
+ActiveRecord::Schema[7.2].define(version: 2025_06_24_123916) do
   create_table "good_things", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "diary_id"
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["diary_id"], name: "index_good_things_on_diary_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -36,7 +26,4 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_22_014500) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
-
-  add_foreign_key "diaries", "users"
-  add_foreign_key "good_things", "diaries"
 end
