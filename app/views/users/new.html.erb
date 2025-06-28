@@ -1,29 +1,37 @@
-<div class="container">
-  <%= render 'shared/error_messages', object: @user%>
-  <div class="row">
-    <div class="col-md-10 col-lg-8 mx-auto">
-      <h1>ユーザー登録</h1>
-      <%= form_with model: @user do |f| %>
-        <div class="mb-3">
-          <%= f.label :name, class: "form-label" %>
-          <%= f.text_field :name, class: "form-control" %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white text-center">
+          <h4 class="mb-0">ユーザー登録 🌱</h4>
         </div>
-        <div class="mb-3">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, class: "form-control" %>
+        <div class="card-body">
+          <%= render 'shared/error_messages', object: @user %>
+          <%= form_with model: @user, local: true do |f| %>
+            <div class="mb-3">
+              <%= f.label :name, class: "form-label" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "ニックネーム" %>
+            </div>
+            <div class="mb-3">
+              <%= f.label :email, class: "form-label" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+            </div>
+            <div class="mb-3">
+              <%= f.label :password, class: "form-label" %>
+              <%= f.password_field :password, class: "form-control", placeholder: "パスワード（6文字以上）" %>
+            </div>
+            <div class="mb-3">
+              <%= f.label :password_confirmation, class: "form-label" %>
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード（確認）" %>
+            </div>
+            <div class="d-grid">
+              <%= f.submit "登録する", class: "btn btn-success" %>
+            </div>
+          <% end %>
         </div>
-        <div class="mb-3">
-          <%= f.label :password, class: "form-label" %>
-          <%= f.password_field :password, class: "form-control" %>
+        <div class="card-footer text-center">
+          <%= link_to 'ログインページへ', login_path, class: 'text-decoration-none' %>
         </div>
-        <div class="mb-3">
-          <%= f.label :password_confirmation, class: "form-label" %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-        <%= f.submit "登録", class: "btn btn-primary" %>
-      <% end %>
-      <div class='text-center'>
-        <%= link_to 'ログインページへ', login_path %>
       </div>
     </div>
   </div>

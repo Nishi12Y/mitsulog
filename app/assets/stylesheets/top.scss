@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
+
+body {
+font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.landing-wrapper {
+background: linear-gradient(135deg, #f0fdf4, #ffffff);
+padding: 2rem;
+border-radius: 0.75rem;
+box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+.landing-title {
+font-size: 2.5rem;
+color: #3a7f5d;
+font-weight: bold;
+}
+.landing-lead {
+font-size: 1.25rem;
+color: #4d4d4d;
+margin-top: 1.5rem;
+}
+.landing-subtext {
+font-size: 1.1rem;
+color: #666;
+margin-bottom: 1.5rem;
+}
+.landing-divider {
+border-color: #cce3d5;
+margin: 2rem 0;
+}
+.landing-btn {
+background-color: #7acaa3;
+color: white;
+font-weight: bold;
+border-radius: 30px;
+padding: 0.5rem 2.5rem;
+font-size: 1.1rem;
+}
