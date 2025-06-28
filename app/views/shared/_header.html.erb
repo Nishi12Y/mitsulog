@@ -6,8 +6,12 @@
     </div>
 
     <div class="d-flex gap-3">
-      <%= link_to '記録する', new_good_thing_path, class: 'btn btn-outline-success' %>
-      <%= link_to 'ログアウト', logout_path, data: {turbo_method: :delete}, class: 'btn btn-success' %>
+      <% if logged_in? %>
+        <%= link_to '記録する', new_good_thing_path, class: 'btn btn-outline-success' %>
+        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'btn btn-success' %>
+      <% else %>
+        <%= link_to 'ログイン', login_path, class: 'btn btn-success' %>
+      <% end %>
     </div>
   </div>
 </header>
