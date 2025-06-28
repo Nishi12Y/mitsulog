@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   post 'login' , to: 'user_sessions#create'
 
   resources :users, only: [:new, :create]
+  # resources :diaries, only: [:index, :new, :create]
+  resources :good_things, only: [:index, :new, :create, :destroy, :update, :show, :edit]
+  
 end

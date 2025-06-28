@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0">できたこと編集画面 🌱</h5>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: @good_thing, local: true, class: "needs-validation") do |form| %>
+            <div class="mb-3">
+              <%= form.label :content, "できたこと", class: "form-label" %>
+              <%= form.text_field :content, class: "form-control", placeholder: "予定通りに朝起きられた" %>
+            </div>
+            <%= form.submit "記録する", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="mt-3 text-start">
+        <%= link_to '一覧へ', good_things_path, class: 'btn btn-outline-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>

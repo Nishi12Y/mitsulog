@@ -1,0 +1,52 @@
+class GoodThingsController < ApplicationController
+
+    def index
+        # TODO: ページごとに取得するように変更する
+        # TODO: 日付ごとにまとめて１つのカードに表示できるように取得の仕方を変更する。
+        @good_things = current_user.good_things.all.order(created_at: :desc)
+    end
+
+    def new
+        @good_thing = GoodThing.new
+    end
+
+    def show
+        @good_thing = current_user.good_things.find(params[:id])
+    end
+
+    def create
+        @good_thing = current_user.good_things.build(good_thing_params)
+
+        if @good_thing.save
+            redirect_to new_good_thing_path, success: 'できたことを登録しました。'
+        else
+            flash.now[:danger] = 'できたことの登録に失敗しました。'
+            render :new, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        @good_thing = current_user.good_things.find(params[:id])
+            
+        if @good_thing.update(good_thing_params)
+            redirect_to good_things_path(@good_thing), success: 'できたことを更新しました。'
+        else
+            flash.now[:danger] = 'できたことの更新に失敗しました。'
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+
+        good_thing = current_user.good_things.find(params[:id])
+        good_thing.destroy!
+        redirect_to good_things_path, success: 'できたことを削除しました。'
+        
+    end
+
+    private
+
+    def good_thing_params
+        params.require(:good_thing).permit(:content)
+    end
+end
