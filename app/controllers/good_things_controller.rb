@@ -5,6 +5,7 @@ class GoodThingsController < ApplicationController
         # TODO: ページごとに取得するように変更する
         # TODO: 日付ごとにまとめて１つのカードに表示できるように取得の仕方を変更する。
         @good_things = current_user.good_things.all.order(created_at: :desc)
+        @today_count = @good_things.where(created_at: Time.zone.today.all_day).count
     end
 
     def new
