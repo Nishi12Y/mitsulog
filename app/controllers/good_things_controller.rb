@@ -1,4 +1,5 @@
 class GoodThingsController < ApplicationController
+    include ApplicationHelper::MeeHelper
 
     def index
         # TODO: ページごとに取得するように変更する
@@ -18,6 +19,7 @@ class GoodThingsController < ApplicationController
         @good_thing = current_user.good_things.build(good_thing_params)
 
         if @good_thing.save
+            flash[:mee_message] = mee_message
             redirect_to new_good_thing_path, success: 'できたことを登録しました。'
         else
             flash.now[:danger] = 'できたことの登録に失敗しました。'

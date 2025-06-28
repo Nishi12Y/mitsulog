@@ -1,6 +1,15 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-8">
+      <% if flash[:mee_message] %>
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <img src="/assets/mee_smile.png" alt="ミーの笑顔" style="height: 60px;">
+          <div class="p-3 bg-light border rounded position-relative" style="max-width: 100%;">
+            <div class="position-absolute top-0 start-0 translate-middle-y" style="width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f8f9fa; left: -10px; top: 20px;"></div>
+            <%= flash[:mee_message] %>
+          </div>
+        </div>
+      <% end %>
       <div class="card shadow-sm">
         <div class="card-header bg-success text-white">
           <h5 class="mb-0">今日の「できたこと」を記録しよう 🌱</h5>
