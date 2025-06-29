@@ -37,3 +37,19 @@ border-radius: 30px;
 padding: 0.5rem 2.5rem;
 font-size: 1.1rem;
 }
+
+.login-header {
+background-color: #c8e6c9; /* 薄い緑 */
+color: #2e7d32;
+}
+
+.btn-light-green {
+background-color: #a5d6a7; /* 薄い緑ボタン */
+color: #1b5e20; /* より濃い緑の文字色で可読性UP */
+font-weight: bold;
+border: none;
+}
+
+.btn-light-green:hover {
+background-color: #81c784;
+}
