@@ -2,8 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
       <div class="card shadow-sm">
-        <div class="card-header bg-success text-white text-center">
-          <h4 class="mb-0">ユーザー登録 🌱</h4>
+        <div class="card-header form-header text-center">
+          <h4 class="mb-0">ユーザー登録</h4>
         </div>
         <div class="card-body">
           <%= render 'shared/error_messages', object: @user %>
@@ -25,7 +25,7 @@
               <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード（確認）" %>
             </div>
             <div class="d-grid">
-              <%= f.submit "登録する", class: "btn btn-success" %>
+              <%= f.submit "登録する", class: "btn btn-light-green" %>
             </div>
           <% end %>
         </div>
