@@ -50,6 +50,6 @@ class GoodThingsController < ApplicationController
     private
 
     def good_thing_params
-        params.require(:good_thing).permit(:content)
+        params.require(:good_thing).permit(:content, :praise)
     end
 end
