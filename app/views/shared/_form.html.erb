@@ -1,0 +1,11 @@
+<div class="card shadow-sm">
+    <div class="card-body">
+        <%= form_with(model: form_model, local: true, class: "needs-validation") do |form| %>
+        <div class="mb-3">
+            <%= form.label :content, "できたこと", class: "form-label" %>
+            <%= form.text_field :content, class: "form-control", placeholder: "予定通りに朝起きられた" %>
+        </div>
+        <%= form.submit "記録する", class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>
