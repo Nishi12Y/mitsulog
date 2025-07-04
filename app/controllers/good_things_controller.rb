@@ -47,6 +47,12 @@ class GoodThingsController < ApplicationController
         
     end
 
+    # TODO: ログインユーザーがすでに入力している褒め言葉を除く必要がある。
+    def shared
+        @shared_good_things = GoodThing.where.not(user: current_user)
+        @compliment = Compliment.new
+    end
+
     private
 
     def good_thing_params
