@@ -17,8 +17,14 @@ Rails.application.routes.draw do
   post 'login' , to: 'user_sessions#create'
   delete 'logout' , to: 'user_sessions#destroy'
 
+  get 'compliments' , to: 'compliments#index'
+
   resources :users, only: [:new, :create]
   # resources :diaries, only: [:index, :new, :create]
-  resources :good_things, only: [:index, :new, :create, :destroy, :update, :show, :edit]
-  
+  resources :good_things do
+    collection do
+      get :shared
+    end
+    resources :compliments, only: [:create]
+  end
 end
