@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-10">
-      <h4 class="mb-4 text-success"><%=current_user.name%>さんの「できたこと」🌿</h4>
+      <h4 class="mb-4 text-success"><%= current_user.name %>さんの「できたこと」🌿</h4>
 
       <!-- Summary Section -->
       <div class="alert alert-light border shadow-sm mb-4">
@@ -20,18 +20,32 @@
 
       <% @good_things.each do |item| %>
         <div class="card mb-3 shadow-sm">
-          <div class="card-body d-flex justify-content-between align-items-center">
-            <div>
-              <p class="mb-1"><%= item.content %></p>
-              <% if item.praise.present? %>
-                <p class="mb-1 text-success small">🌱 <%= item.praise %></p>
-              <% end %>
-              <small class="text-muted"><%= l item.created_at, format: :short %></small>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <p class="mb-1"><%= item.content %></p>
+                <% if item.praise.present? %>
+                  <p class="mb-1 text-success small">🌱 <%= item.praise %></p>
+                <% end %>
+                <small class="text-muted"><%= l item.created_at, format: :short %></small>
+              </div>
+              <div class="d-flex gap-2">
+                <%= link_to '編集', good_thing_path(item), class: 'btn btn-outline-success btn-sm' %>
+                <%= link_to '削除', good_thing_path(item), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-outline-danger btn-sm' %>
+              </div>
             </div>
-            <div class="d-flex gap-2">
-              <%= link_to '編集', good_thing_path(item), class: 'btn btn-outline-success btn-sm' %>
-              <%= link_to '削除', good_thing_path(item), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-outline-danger btn-sm' %>
-            </div>
+
+            <% if item.compliments.present? %>
+              <hr class="my-3" style="border-color: #cce3d5;">
+              <p class="fw-bold text-success">みんなからのひとこと</p>
+              <ul class="ps-3 mb-0">
+                <% item.compliments.each do |compliment| %>
+                  <li class="small text-muted">
+                    <span class="text-success fw-bold"><%= compliment.user.name %>さん</span>：<%= compliment.content %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
           </div>
         </div>
       <% end %>
