@@ -15,5 +15,26 @@ module ApplicationHelper
           ]
           messages.sample
         end
+    end
+
+    # TODO：このメソッドはモデルに記述するべきかも
+    def eligible_for_compliments?
+      my_good_things = GoodThing
+      .where(user: current_user)
+      .select("DATE(created_at) as recorded_date")
+      .distinct
+
+      if my_good_things.size > 3
+        return true
       end
+      false
+    end
+
+    def daily_compliment_count
+      current_user.compliments.where(created_at: Time.zone.today.all_day).count
+    end
+
+    def daily_compliment_limit_reached?
+      daily_compliment_count >= 3
+    end
 end
