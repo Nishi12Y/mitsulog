@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_01_214429) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_06_224859) do
   create_table "compliments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "good_thing_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_01_214429) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.string "praise", null: false
+    t.boolean "is_public", default: false, null: false
     t.index ["user_id"], name: "index_good_things_on_user_id"
   end
 
