@@ -9,6 +9,12 @@
             <%= form.label :praise, "できたことに対する褒め言葉", class: "form-label" %>
             <%= form.text_field :praise, class: "form-control", placeholder: "よく頑張ったね！" %>
         </div>
+        <div class="form-check form-switch mb-3">
+            <%= form.check_box :is_public, class: "form-check-input", id: "is_public" %>
+            <%= form.label :is_public, class: "form-check-label", for: "is_public" do %>
+            <i class="bi bi-lock me-1"></i>公開する（「できたこと」のみ他ユーザーに共有されます）
+            <% end %>
+        </div>
         <div class="text-end">
             <%= form.submit "記録する", class: "btn btn-success" %>
         </div>
