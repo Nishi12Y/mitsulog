@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   has_many :good_things, dependent: :destroy
   has_many :compliments, dependent: :destroy
+
+  def today_count
+    good_things.where(created_at: Time.zone.today.all_day).count
+  end
 end
