@@ -53,6 +53,7 @@ class GoodThingsController < ApplicationController
             .where.not(
                 id: current_user.compliments.select(:good_thing_id)
             )
+            .where(is_public: true)
         @compliment = Compliment.new
     end
 
