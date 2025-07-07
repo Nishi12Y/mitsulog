@@ -1,24 +1,31 @@
-# README
+# 🌿 ミツログ（mitsulog）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**ミツログ**は、日々の小さな「できたこと」を記録することで、自己肯定感を育てるシンプルなWebアプリケーションです。
 
-Things you may want to cover:
+## 🔍 コンセプト
 
-* Ruby version
+- 自分を責めがちな人に、「できたこと」に気づくきっかけを。
+- 他人と比較せず、自分のペースで続けられる設計。
+- 応援しあえる機能で、ゆるやかに人とつながる体験を。
 
-* System dependencies
+---
 
-* Configuration
+## ✨ 主な機能
 
-* Database creation
+- 「できたこと」の記録・編集・削除
+- 自分の言葉で褒め言葉を添えられる
+- 他ユーザーの投稿に「ひとこと」で応援できる（記録3日分で解放）
+- 累計件数・今日の件数の表示
+機能拡張予定！
 
-* Database initialization
+---
 
-* How to run the test suite
+## ⚙️ 技術スタック
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- フレームワーク: Ruby on Rails
+- 言語: Ruby / JavaScript
+- UI: HTML, CSS, Bootstrap 5.3, jQuery
+- DB: PostgreSQL（本番）, SQLite3（開発）
+- 認証: セッションベース認証
+- デプロイ: Render
+- その他: Turbo, GitHub
