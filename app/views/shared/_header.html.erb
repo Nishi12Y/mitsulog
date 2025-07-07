@@ -7,6 +7,7 @@
 
     <div class="d-flex gap-3">
       <% if logged_in? %>
+        <%= link_to '投稿広場', shared_good_things_path, class: 'btn btn-outline-success' %>
         <%= link_to '記録する', new_good_thing_path, class: 'btn btn-outline-success' %>
         <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'btn btn-success btn-light-green' %>
       <% else %>
