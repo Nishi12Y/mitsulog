@@ -17,14 +17,13 @@ module ApplicationHelper
         end
     end
 
-    # TODO：このメソッドはモデルに記述するべきかも
     def eligible_for_compliments?
       my_good_things = GoodThing
       .where(user: current_user)
       .select("DATE(created_at) as recorded_date")
       .distinct
 
-      if my_good_things.size > 3
+      if my_good_things.size >= 3
         return true
       end
       false
