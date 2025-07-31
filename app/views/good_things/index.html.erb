@@ -17,7 +17,11 @@
         </div>
       </div>
       <!-- End Summary Section -->
-
+      <% tweet_text = "今日の『できたこと』を#{current_user.today_count}こ記録しました🌱\nhttps://mitsulog.onrender.com\n#ミツログ" %>
+      <% tweet_url = "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(tweet_text)}" %>
+      <div class="mb-3 text-end">
+        <%= link_to "Xでシェアする", tweet_url, class: "btn btn-outline-primary", target: "_blank", rel: "noopener" %>
+      </div>
       <% @good_things.each do |item| %>
         <div class="card mb-3 shadow-sm">
           <div class="card-body">
